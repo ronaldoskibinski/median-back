@@ -30,6 +30,12 @@
 
 ```bash
 $ npm install
+
+# Running migrations
+$ npx prisma migrate dev
+
+# Running seeds
+$ npx prisma db seed
 ```
 
 ## Running the app

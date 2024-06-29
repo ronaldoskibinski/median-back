@@ -2,6 +2,7 @@ import { Get, Injectable } from '@nestjs/common';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { Article } from './entities/article.entity';
 
 @Injectable()
 export class ArticlesService {
@@ -11,7 +12,7 @@ export class ArticlesService {
     return 'This action adds a new article';
   }
 
-  findAll() {
+  findAll(): Promise<Article[]> {
     return this.prismaService.article.findMany({
       where: {
         published: true,
